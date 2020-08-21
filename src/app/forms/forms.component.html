@@ -1,16 +1,88 @@
 
-<form class="example-form">
- <h1>Test 1</h1>
-    
-    
-    <mat-form-field class="example-full-width">
-      <mat-label>Favorite food</mat-label>
-      <input matInput placeholder="Ex. Pizza" value="Sushi">
-    </mat-form-field>
+<mat-toolbar>
   
-    <mat-form-field class="example-full-width">
-      <mat-label>Leave a comment</mat-label>
-      <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
-    </mat-form-field>
-  </form>
+  <span fxLayoutAlign="center center">Soma</span>
+</mat-toolbar>
+
+
+
+
+<div  class="container"  fxLayoutAlign="center center">
+  <mat-card class="width-of-card">
+
+ <h1>Fill in  your Details</h1>
+    
+  <mat-card-content>
+    <div fxLayoutAlign="center center">
+     <form  [formGroup]="formDetails"
+     (ngSubmit)="submitForm(formDetails.value)">
+    <table >
+      <tr>
+        <td>
+          <mat-form-field class="input-width" >
+            <input formControlName="firstName"  matInput placeholder="First Name">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="input-width">
+          <input formControlName="lastName" matInput placeholder="Last Name">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="input-width">
+          <input  formControlName="otherName" matInput placeholder="Other Name">
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+           <mat-form-field class="input-width">
+            <input  formControlName="email" matInput placeholder="email" type="email">
+          </mat-form-field>
+           </td>
+      </tr>
+      <tr>
+      <td colspan="3">
+        <mat-form-field class="input-width">
+        <mat-label> date of birth</mat-label>
+       <input  formControlName="dateOfBirth"  matInput [matDatepicker]="picker">
+       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+       <mat-datepicker #picker></mat-datepicker>
+       </mat-form-field>
+      </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <mat-form-field class="input-width">
+            <input  formControlName="phoneNumber"  matInput placeholder="phoneumber" type="number">
+          </mat-form-field>
+        </td>
+        <td colspan="1">
+          <mat-form-field class="input-width">
+            <input  formControlName="image" matInput placeholder="image" type="url">
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <mat-form-field appearance="fill" class="input-width">
+          <textarea  formControlName="skills" matInput placeholder="skills"></textarea>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <mat-form-field appearance="fill" class="input-width">
+            <textarea formControlName="aboutYou" matInput placeholder="About you"></textarea>
+          </mat-form-field>
+        </td>
+      </tr>
+</table>
+<button type="submit" mat-flat-button color="primary" >Submit</button>
+    </form>
+   
+  </div>
+  </mat-card-content>
   
+  </mat-card>
+  </div>
